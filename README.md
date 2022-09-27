@@ -1,12 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <h1>🚀 NextJS-TypeScript-TailwindCSS</h1>
+  <p>Next.js + TypeScript + Tailwind CSS starter environment with useful development features.</p>
+</div>
 
-## Getting Started
+## Features
 
-First, run the development server:
+- `Next.Js` - 12v
+- `React` - 18v
+- `Typescript`
+- `Tailwind CSS 3`
+- `ESLint`
+- `Prettier`
+- `Husky`
+
+## Install dependencies
 
 ```bash
-npm run dev
-# or
+yarn install
+```
+
+## Run the development server
+
+```bash
 yarn dev
 ```
 
