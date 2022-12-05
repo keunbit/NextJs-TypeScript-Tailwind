@@ -1,5 +1,5 @@
 const cls = (...classnames: string[]): string => {
-  return classnames.join(" ");
+  return classnames.join(' ');
 };
 
 export { cls };

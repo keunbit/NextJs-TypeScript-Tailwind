@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 interface UseMutationState<T> {
   loading: boolean;
@@ -10,29 +10,24 @@ interface mutationOption {
   isFile: boolean;
 }
 
-type UseMutationResult<T> = [(data?: any) => void, UseMutationState<T>];
+type UseMutationResult<T> = [(data?: unknown) => void, UseMutationState<T>];
 
-export default function useMutation<T = any>({
-  url,
-  isFile,
-}: mutationOption): UseMutationResult<T> {
+export default function useMutation<T = unknown>({ url, isFile }: mutationOption): UseMutationResult<T> {
   const [state, setState] = useState<UseMutationState<T>>({
     loading: false,
     data: undefined,
     error: undefined,
   });
-  const headers = isFile
-    ? null
-    : { headers: { "Content-Type": "application/json" } };
+  const headers = isFile ? null : { headers: { 'Content-Type': 'application/json' } };
 
-  const mutation = (data: any): void => {
+  const mutation = (data: unknown) => {
     setState((prev) => ({ ...prev, loading: true }));
     fetch(url, {
-      method: "POST",
-      body: data,
+      method: 'POST',
+      body: data as BodyInit,
       ...headers,
     })
-      .then(async (response) => await response.json().catch(() => {}))
+      .then(async (response) => await response.json())
       .then((data) => {
         setState((prev) => ({ ...prev, data }));
       })
