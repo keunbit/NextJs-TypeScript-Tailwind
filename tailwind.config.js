@@ -1,52 +1,9 @@
-import plugin from 'tailwindcss/plugin';
-/** @type {import('tailwindcss').Config} */
-export const content = ['./pages/**/*.{js,jsx,ts,tsx}', './components/**/*.{js,jsx,ts,tsx}', './layouts/**/*.{js,jsx,ts,tsx}'];
-export const theme = {
-  extend: {},
+module.exports = {
+  // Tailwind가 pages 폴더의, 모든 디렉토리의, 아래 확장자로 끝나는 모든 파일에서 우리가 Tailwind를 사용한걸 찾아내도록
+  content: ['./pages/**/*.{js,jsx,ts,tsx}', './components/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    extend: {},
+  },
+  darMode: 'media', //class
+  plugins: [require('@tailwindcss/forms')],
 };
-export const darMode = 'media';
-export const plugins = [
-  plugin(function ({ addComponents, theme }) {
-    const screens = theme('screens', {});
-    addComponents([
-      {
-        '.container': { width: '100%' },
-      },
-      {
-        [`@media (min-width: ${screens.sm})`]: {
-          '.container': {
-            'max-width': '640px',
-          },
-        },
-      },
-      {
-        [`@media (min-width: ${screens.md})`]: {
-          '.container': {
-            'max-width': '768px',
-          },
-        },
-      },
-      {
-        [`@media (min-width: ${screens.lg})`]: {
-          '.container': {
-            'max-width': '1024px',
-          },
-        },
-      },
-      {
-        [`@media (min-width: ${screens.xl})`]: {
-          '.container': {
-            'max-width': '1280px',
-          },
-        },
-      },
-      {
-        [`@media (min-width: ${screens['2xl']})`]: {
-          '.container': {
-            'max-width': '1280px',
-          },
-        },
-      },
-    ]);
-  }),
-];
